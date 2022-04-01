@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <nav class="navbar">
       <a class="navbar-logo" href="#">
-        <img src="../assets/images/rapidstore.png" alt="rapid store" />
+        {/* <img src="../assets/images/rapidstore.png" alt="rapid store" /> */}
       </a>
       <div class="search-box">
         <i class="fas fa-search"></i>
