@@ -1,0 +1,53 @@
+.videoCard {
+    width: 40rem;
+    height: 29rem;
+    border-radius: 8px;
+    background-color: var(--COLOR-LIGHT-BACKGROUND);
+    margin-bottom: 2rem;
+}
+
+.cardImageContainer img {
+    width: 100%;
+    height: 21rem;
+    object-fit: cover;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.cardBody {
+    color: var(--COLOR-WHITE);
+    display: flex;
+    align-items: center;
+}
+
+.avatar img {
+    height: 4rem;
+    width: 4rem;
+    object-fit: contain;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 8px;
+}
+
+.content {
+    display: flex;
+    height:auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+}
+
+.channelName {
+    padding-top: 5px;
+    margin-top: auto;
+    font-weight:lighter;
+    color: rgb(171, 171, 171)
+}
