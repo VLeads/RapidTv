@@ -69,7 +69,7 @@ export const videos = [
       "The newest robots 2021 | Incredible and technologically advanced robots",
     thumbnail:
       "https://imageio.forbes.com/specials-images/imageserve/61d66f8dbbb58ffd41f3d174/AI-and-robotics/960x0.jpg?fit=bounds&format=jpg&width=960",
-    url: "LP4qpOLl0",
+    url: "m-LP4qpOLl0",
     channelName: "Pro Robots",
     description:
       "You're on PRO Robotics and in this episode we've collected the latest robots of the year 2021. You will learn about the latest developments in robotics and get to know high-tech and incredible robots. All types of robots from humanoid to robotic grippers to microscopic robots will be featured today. Watch the video to the end and write in the comments which robot did you like best?",

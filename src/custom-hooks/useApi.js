@@ -1,7 +1,13 @@
 import axios from "axios";
+import { useUser } from "context";
+import { useState, useEffect } from "react";
 
 const useApi = () => {
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState();
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, []);
 
   function getConfig() {
     const config = {
@@ -115,7 +121,21 @@ const useApi = () => {
     return axios.delete(URL, getConfig());
   }
 
+  // Signup
+  function postSignUpDetailsApi(data) {
+    const URL = httpConfig + "/auth/signup";
+    return axios.post(URL, data, getConfig());
+  }
+
+  // Login
+  function postLoginDetailsApi(data) {
+    const URL = httpConfig + "/auth/login";
+    return axios.post(URL, data, getConfig());
+  }
+
   const value = {
+    postLoginDetailsApi,
+    postSignUpDetailsApi,
     getAllVideosApi,
     getVideoApi,
     getAllCategoriesApi,
