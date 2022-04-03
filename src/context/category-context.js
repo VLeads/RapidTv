@@ -1,4 +1,4 @@
-import { useAsync } from "custom-hooks/useAsync";
+import { useApi, useAsync } from "custom-hooks";
 import { createContext, useContext, useEffect, useState } from "react";
 import { getAllCategoriesApi } from "utils";
 import { useVideo } from "./video-context";
@@ -7,6 +7,8 @@ const CategoryContext = createContext(null);
 
 const CategoryProvider = ({ children }) => {
   const [categoryVideos, setCategoryVideos] = useState([]);
+
+  const {getAllCategoriesApi} = useApi();
 
   const fetchData = "categories";
 

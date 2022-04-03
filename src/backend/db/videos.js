@@ -14,7 +14,7 @@ export const videos = [
       "https://media.istockphoto.com/photos/people-with-vr-grasses-playing-virtual-reality-game-future-digital-picture-id1324380506?b=1&k=20&m=1324380506&s=170667a&w=0&h=er2VM8CIBfQJDaLkjPR69SUgkPMooo0BtNx2vmndwOg=",
     channelName: "Simplilearn",
     description:
-      "mmersive technologies consisting of Virtual Reality, Augmented Reality, and Mixed Reality are amongst the fastest-growing and fascinating technologies today. So what is immersive technology? To put it in a nutshell, immersive technologies create or extend reality. This technology is gaining momentum with every passing day and hour, transforming and helping us reimagine the future.",
+      "Immersive technologies consisting of Virtual Reality, Augmented Reality, and Mixed Reality are amongst the fastest-growing and fascinating technologies today. So what is immersive technology? To put it in a nutshell, immersive technologies create or extend reality. This technology is gaining momentum with every passing day and hour, transforming and helping us reimagine the future.",
     avatar:
       "https://yt3.ggpht.com/ytc/AKedOLTaNnIZrEVNHk-OgfTRlO1n2aeAZ657f5FrG-5EaA=s88-c-k-c0x00ffffff-no-rj",
     categoryName: "world",
@@ -22,11 +22,25 @@ export const videos = [
   },
   {
     _id: uuid(),
+    title: "2022 ULTIMATE MacBook BUYING GUIDE!",
+    url: "MA9pzk8Ezuk",
+    thumbnail:
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-og-202011?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1604278672000",
+    channelName: "Tech Gear Talk",
+    description:
+      "Ok, so you’re thinking of buying a MacBook and you realize that there are a lot of great options - while that’s great, it’s probably super confusing - and don’t worry, you’re not alone. So let’s talk about the important differences, so you can have all the information you need to choose the right MacBook for you. And spoiler alert, we’re going to pretty much get rid of one of the models - so that’s going to make the decision even easier. ",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AKedOLRYIT4fMSbDNdfodGWePlHM0ZWrDRd-JwEIA4V5Cw=s88-c-k-c0x00ffffff-no-rj",
+    categoryName: "review",
+    subscribers: "450K",
+  },
+  {
+    _id: uuid(),
     title:
       "Online Games BAN, Crypto Jail, A73 5G India, Xiaomi 12 Pro in India, NordCE 2Lite",
     url: "t6QcZ8IqF1w",
     thumbnail:
-      "https://i.ytimg.com/an_webp/t6QcZ8IqF1w/mqdefault_6s.webp?du=3000&sqp=CIj3oJIG&rs=AOn4CLCMLs3gsDEoGgAbzYPU1LgI1Yjwxw",
+      "https://img.freepik.com/free-vector/breaking-news-template-title-with-shadow-world-map-background-screen-tv-vector-design_258787-2587.jpg",
     channelName: "Technical Guruji",
     description:
       "Namaskaar Dosto, Tech Talks ke is Episode mein maine aapse kuch interesting Tech News Share ki hai jaise Online Games BAN, Crypto Jail, A73 5G India, Xiaomi 12 Pro in India, Nord CE 2 Lite aur bahut kuch. Mujhe umeed hai ki yeh video aapko pasand aayega.",
@@ -40,7 +54,7 @@ export const videos = [
     title: "Razer DeathAdder V2 - STILL The Best Gaming Mouse After 14 Years?",
     url: "Ic-Y3osvnFk",
     thumbnail:
-      "https://i.ytimg.com/vi/Ic-Y3osvnFk/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAJUtXRwPuHr801MiEp2QqrIystgg",
+      "https://www.mobimaniak.pl/wp-content/uploads/mobimaniak/2020/10/Razer-Deathadder-V2-Pro-1.jpg",
     channelName: "Hardware Canucks",
     description:
       "The DeathAdder may be the best Razer gaming mouse ever made since its built for a wide variety of grip styles and hand sizes.  In this Razer DeathAdder review we look at the DeathAdder V2 and compare it to the original DeathAdder in gaming",
@@ -63,20 +77,6 @@ export const videos = [
       "https://yt3.ggpht.com/r4aJIu5--POU1ohUPlWPQFnUIqKJzFrQhalsSmsz9jpnJXB5QG0PSASQlQZ2rIjKEvneaQFcBA=s88-c-k-c0x00ffffff-no-rj",
     categoryName: "news",
     subscribers: "216K",
-  },
-  {
-    _id: uuid(),
-    title: "2022 ULTIMATE MacBook BUYING GUIDE!",
-    url: "MA9pzk8Ezuk",
-    thumbnail:
-      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-og-202011?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1604278672000",
-    channelName: "Tech Gear Talk",
-    description:
-      "Ok, so you’re thinking of buying a MacBook and you realize that there are a lot of great options - while that’s great, it’s probably super confusing - and don’t worry, you’re not alone. So let’s talk about the important differences, so you can have all the information you need to choose the right MacBook for you. And spoiler alert, we’re going to pretty much get rid of one of the models - so that’s going to make the decision even easier. ",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AKedOLRYIT4fMSbDNdfodGWePlHM0ZWrDRd-JwEIA4V5Cw=s88-c-k-c0x00ffffff-no-rj",
-    categoryName: "review",
-    subscribers: "450K",
   },
   {
     _id: uuid(),

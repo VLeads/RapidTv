@@ -134,43 +134,10 @@ export const useAsync = (api, fetchData, token) => {
     }
   };
 
-  const postCartQty = async (api, id, type) => {
-    dispatch({ type: ACTION_TYPE_LOADING });
-    try {
-      const response = await api(id, type);
-
-      dispatch({
-        type: ACTION_TYPE_SUCCESS,
-        payload: response.data[fetchData],
-      });
-
-      toastDispatch({
-        type: ACTION_TYPE_SUCCESS,
-        payload: `${
-          type === "increment"
-            ? "Added one more item in "
-            : "Removed one of the item from "
-        }  Your Cart 🎉`,
-      });
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
-    } catch (error) {
-      dispatch({
-        type: ACTION_TYPE_ERROR,
-        payload: error.message,
-      });
-      toastDispatch({
-        type: ACTION_TYPE_ERROR,
-        payload: error.message,
-      });
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
-    }
+  return {
+    state,
+    dispatch,
+    postDataUsingApi,
+    deleteDataUsingApi,
   };
-
-  return { state, dispatch, postDataUsingApi, deleteDataUsingApi, postCartQty };
 };
