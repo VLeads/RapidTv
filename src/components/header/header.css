@@ -1,0 +1,21 @@
+.navbar{
+    height: 10rem;
+    background-color: inherit;
+    box-shadow: inherit;
+}
+
+.search-box > .header-serachbox{
+    color: var(--COLOR-WHITE);
+    border:none;
+}
+
+.navbar-items{
+    display: flex;
+    margin-left:auto
+}
+
+.search-box{
+    border-radius: 10px;
+    width: 45rem;
+    background-color: var(--COLOR-LIGHT-BACKGROUND);
+}

@@ -1,0 +1,13 @@
+:root{
+    --COLOR-BACKGROUND: #1f2127;
+    --COLOR-LIGHT-BACKGROUND: #363341;
+    --COLOR-WHITE: #f5f3f3;
+    --COLOR-GREY-200: #7c7c85;
+    --COLOR-GREY-400: #656575;
+    --COLOR-GREY-TEXT: #e2c9ff;
+}
+
+body{
+    background-color: var(--COLOR-BACKGROUND);
+    font-size: 1.5rem
+}
