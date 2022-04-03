@@ -1,13 +1,7 @@
 import axios from "axios";
-import { useUser } from "context";
-import { useState, useEffect } from "react";
 
 const useApi = () => {
-  const [token, setToken] = useState();
-
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-  }, []);
+  const token = localStorage.getItem("token");
 
   function getConfig() {
     const config = {

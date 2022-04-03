@@ -67,9 +67,9 @@ export const useAsync = (api, fetchData, token) => {
       toastDispatch({
         type: ACTION_TYPE_SUCCESS,
         payload:
-          fetchData === "wishlist"
-            ? "Added in your wishlist 🎉"
-            : "Added to cart 🛒",
+          fetchData === "likes"
+            ? "Added to liked 🎉"
+            : "Added to watch later 🎉",
       });
       setTimeout(() => {
         setShowToast(false);

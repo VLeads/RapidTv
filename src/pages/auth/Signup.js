@@ -65,7 +65,7 @@ export const Signup = () => {
           });
           setShowToast(true);
           setTimeout(() => {
-            navigate("/", { replace: true });
+            navigate(-1);
             setShowToast(false);
           }, 2000);
         }

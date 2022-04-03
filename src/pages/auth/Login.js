@@ -63,7 +63,7 @@ export const Login = () => {
           });
           setShowToast(true);
           setTimeout(() => {
-            navigate("/", { replace: true });
+            navigate(-1);
             setShowToast(false);
           }, 1800);
           localStorage.setItem("token", response.data.encodedToken);
