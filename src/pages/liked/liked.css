@@ -1,0 +1,29 @@
+.liked_videos_container {
+    margin-top: 1rem;
+}
+
+.page_heading {
+    color: var(--COLOR-WHITE);
+    font-weight: 600;
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+
+.liked_videos_container .empty_list {
+    color: var(--COLOR-GREY-100);
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.liked_videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+}

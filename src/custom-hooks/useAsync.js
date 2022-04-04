@@ -50,7 +50,7 @@ export const useAsync = (api, fetchData, token) => {
         });
       }
     })();
-  }, [token]);
+  }, []);
 
   const postDataUsingApi = async (api, data) => {
     dispatch({ type: ACTION_TYPE_LOADING });
@@ -109,9 +109,9 @@ export const useAsync = (api, fetchData, token) => {
       toastDispatch({
         type: ACTION_TYPE_SUCCESS,
         payload: `${
-          fetchData === "wishlist"
-            ? "✅ Removed from wishlist "
-            : "✅ Removed from Cart"
+          fetchData === "likes"
+            ? "✅ Removed from liked videos "
+            : "✅ Removed from watch later"
         }`,
       });
       setTimeout(() => {

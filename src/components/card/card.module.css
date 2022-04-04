@@ -33,7 +33,7 @@
 
 .content {
     display: flex;
-    height:auto;
+    height: auto;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -50,6 +50,85 @@
 .channelName {
     padding-top: 5px;
     margin-top: auto;
-    font-weight:lighter;
+    font-weight: lighter;
     color: rgb(171, 171, 171)
+}
+
+.historyVideoCard {
+    width: 80rem;
+    height: 15rem;
+    border-radius: 8px;
+    background-color: var(--COLOR-LIGHT-BACKGROUND);
+    margin-bottom: 2rem;
+    cursor: pointer;
+    display: flex;
+}
+
+.historyCardChannelName {
+    color: var(--COLOR-GREY-200);
+}
+
+.historyCardImageContainer img {
+    width: 20rem;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px 0px 0px 8px;
+}
+
+.historyCardBody {
+    color: var(--COLOR-WHITE);
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.historyCardAvatar {
+    display: flex;
+    align-items: center;
+}
+
+.historyCardAvatar img {
+    height: 4rem;
+    width: 4rem;
+    object-fit: contain;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 8px;
+}
+
+.historyCardContent {
+    padding-left: 1rem;
+    padding-top: 1rem;
+    display: flex;
+    text-align: left
+}
+
+.cardSubscribers {
+    color: var(--COLOR-GREY-200);
+    text-align: left;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    font-weight: 600;
+}
+
+.historyCardAction {
+    padding: 1rem;
+    height: 100%;
+    ;
+    margin-left: auto
+}
+
+.historyCardContainer {
+    display: flex;
+}
+
+.deleteIcon {
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.deleteIcon :hover {
+    border-radius: 8px;
+    background-color: rgba(228, 14, 14, 0.433);
 }
