@@ -4,3 +4,4 @@ export { VideoCard } from "./card/VideoCard";
 export { VideoEmbed } from "./video-embed/VideoEmbed";
 export { Toast } from "./toast/Toast";
 export { HistoryVideoCard } from "./card/HistoryVideoCard";
+export { Modal } from "./modal/Modal";

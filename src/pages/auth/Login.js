@@ -156,6 +156,7 @@ export const Login = () => {
           <button className="btn btn-primary" type="submit">
             Login
           </button>
+
           <Link to="/signup" className="auth-alternative">
             New on Rapid TV? Sign Up
           </Link>

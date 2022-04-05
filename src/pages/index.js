@@ -8,3 +8,4 @@ export { Login } from "./auth/Login";
 export { Signup } from "./auth/Signup";
 export { Trending } from "./trending/Trending";
 export { WatchLater } from "./watch-later/WatchLater";
+export { Playlist } from "./playlist/Playlist";

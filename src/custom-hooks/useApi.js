@@ -1,12 +1,14 @@
 import axios from "axios";
 
 const useApi = () => {
-  const token = localStorage.getItem("token");
+  function token() {
+    return localStorage.getItem("token");
+  }
 
   function getConfig() {
     const config = {
       headers: {
-        authorization: token,
+        authorization: token() ? token() : "",
         "content-type": "application/json",
       },
     };

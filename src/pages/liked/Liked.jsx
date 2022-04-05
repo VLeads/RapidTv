@@ -15,7 +15,9 @@ function Liked() {
       <div className="page_heading">Liked Videos</div>
       {authToken ? (
         <>
-          {isLoading && <div>Loading your liked videos</div>}
+          {isLoading && (
+            <div className="empty_list">Loading your liked videos</div>
+          )}
           {!isLoading && data.length > 0 ? (
             <div className="liked_videos">
               {data.map((details) => (

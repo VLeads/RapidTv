@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import "./watch.css";
 import { useParams, useNavigate } from "react-router-dom";
-import { VideoEmbed } from "components";
-import { useHistory, useLike, useUser, useVideo, useWatchLater } from "context";
+import { Modal, VideoEmbed } from "components";
+import {
+  useHistory,
+  useLike,
+  useToast,
+  useUser,
+  useVideo,
+  useWatchLater,
+} from "context";
 import {
   LikeIcon,
   SaveToPlaylistIcon,
@@ -80,6 +87,20 @@ function Watch() {
     }
   };
 
+  const { isModalOpen, setIsModalOpen } = useToast();
+
+  const playlistHandler = () => {
+    if (getToken) {
+      setIsModalOpen((modal) => ({
+        ...modal,
+        modalState: true,
+        videoData: singleVideo,
+      }));
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className="video_page_container">
       <VideoEmbed data={singleVideo} />
@@ -95,9 +116,7 @@ function Watch() {
         </div>
         <div className="video_actions">
           <button className="video_action_btn" onClick={likeClickHandler}>
-            {likeData.findIndex(
-              (element) => element._id === singleVideo._id
-            ) !== -1 ? (
+            {likeData.some((element) => element._id === singleVideo._id) ? (
               <span className="active-btn">
                 <LikeIcon /> liked
               </span>
@@ -108,9 +127,9 @@ function Watch() {
             )}
           </button>
           <button className="video_action_btn" onClick={watchLaterClickHandler}>
-            {watchLater.data.findIndex(
+            {watchLater.data.some(
               (element) => element._id === singleVideo._id
-            ) !== -1 ? (
+            ) ? (
               <span className="active-btn">
                 <WatchLaterOutlineIcon /> watch later
               </span>
@@ -120,7 +139,7 @@ function Watch() {
               </>
             )}
           </button>
-          <button className="video_action_btn">
+          <button className="video_action_btn" onClick={playlistHandler}>
             <SaveToPlaylistIcon />
             save
           </button>
@@ -129,6 +148,7 @@ function Watch() {
       <div className="video_description">
         <p>{description}</p>
       </div>
+      <Modal />
     </div>
   );
 }

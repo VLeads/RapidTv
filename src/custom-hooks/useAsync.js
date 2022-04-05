@@ -5,10 +5,22 @@ import {
   ACTION_TYPE_ERROR,
   ACTION_TYPE_LOADING,
   ACTION_TYPE_SUCCESS,
+  ACTION_TYPE_ADD_VIDEO_TO_PLAYLIST,
+  ACTION_TYPE_REMOVE_VIDEO_FROM_PLAYLIST,
 } from "utils";
 
 export const useAsync = (api, fetchData, token) => {
   const { toastState, toastDispatch, showToast, setShowToast } = useToast();
+
+  const updatePlaylist = (state, playlist) => {
+    if (state.length !== 0) {
+      const index = state.findIndex((obj) => obj._id === playlist._id);
+      state[index] = playlist;
+      return [...state];
+    } else {
+      return [playlist];
+    }
+  };
 
   const [state, dispatch] = useReducer(
     function (state, action) {
@@ -18,7 +30,18 @@ export const useAsync = (api, fetchData, token) => {
 
         case ACTION_TYPE_SUCCESS:
           return { ...state, isLoading: false, data: action.payload };
-
+        case ACTION_TYPE_ADD_VIDEO_TO_PLAYLIST:
+          return {
+            ...state,
+            isLoading: false,
+            data: updatePlaylist([...state.data], action.payload),
+          };
+        case ACTION_TYPE_REMOVE_VIDEO_FROM_PLAYLIST:
+          return {
+            ...state,
+            isLoading: false,
+            data: updatePlaylist([...state.data], action.payload),
+          };
         case ACTION_TYPE_ERROR:
           return { ...state, isLoading: false, error: action.payload };
 
@@ -69,7 +92,9 @@ export const useAsync = (api, fetchData, token) => {
         payload:
           fetchData === "likes"
             ? "Added to liked 🎉"
-            : "Added to watch later 🎉",
+            : fetchData === "watchlater"
+            ? "Added to watch later 🎉"
+            : "Playlist created 🎉",
       });
       setTimeout(() => {
         setShowToast(false);
@@ -111,7 +136,9 @@ export const useAsync = (api, fetchData, token) => {
         payload: `${
           fetchData === "likes"
             ? "✅ Removed from liked videos "
-            : "✅ Removed from watch later"
+            : fetchData === "watchlater"
+            ? "✅ Removed from watch later"
+            : "✅ playlist deleted"
         }`,
       });
       setTimeout(() => {
