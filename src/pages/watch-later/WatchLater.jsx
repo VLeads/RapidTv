@@ -15,7 +15,9 @@ function WatchLater() {
       <div className="page_heading">Watch Later Videos</div>
       {authToken ? (
         <>
-          {isLoading && <div>Loading your Watch Later videos</div>}
+          {isLoading && (
+            <div className="empty_list">Loading your Watch Later videos</div>
+          )}
           {!isLoading && data.length > 0 ? (
             <div className="liked_videos">
               {data.map((details) => (

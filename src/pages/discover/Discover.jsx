@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import banner from "assets/img/Rapidtv-poster.png";
 import "./discover.css";
 import { useCategory, useVideo } from "context";
 import { VideoCard } from "components";
 
 export const Discover = () => {
+  const [selectedTab, setSelectedTab] = useState("all");
   const { videos } = useVideo();
   const { categories, categoryHandler, categoryVideos, setCategoryVideos } =
     useCategory();
@@ -23,21 +24,41 @@ export const Discover = () => {
     setCategoryVideos(videos.data);
   }, [videos]);
 
+  console.log("check", categoryVideos);
+
+  const activeBtnHandler = (e) => {
+    console.log("btn", e.target.name);
+    setSelectedTab(e.target.name);
+  };
+
   return (
     <div>
       <img src={banner} className="img_banner" alt="poster" loading="lazy" />
 
       <div className="category-chips">
         <button
-          className="btn btn-secondary btn-secondary-outline btn-chip"
-          onClick={allCategoriesHandler}
+          name="all"
+          className={`btn btn-secondary-outline btn-chip ${
+            selectedTab === "all" ? "active-btn-chip" : ""
+          }`}
+          onClick={(e) => {
+            allCategoriesHandler();
+            activeBtnHandler(e);
+          }}
         >
           All
         </button>
         {allCategory.map((item) => (
           <button
-            className="btn btn-secondary btn-secondary-outline btn-chip"
-            onClick={() => categoryHandler(item)}
+            name={item.categoryName}
+            // className="btn btn-secondary btn-secondary-outline btn-chip"
+            className={`btn btn-secondary btn-secondary-outline btn-chip ${
+              selectedTab === item.categoryName ? "active-btn-chip" : ""
+            }`}
+            onClick={(e) => {
+              categoryHandler(item);
+              activeBtnHandler(e);
+            }}
             key={item._id}
           >
             {item.categoryName}

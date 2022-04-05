@@ -116,9 +116,7 @@ function Watch() {
         </div>
         <div className="video_actions">
           <button className="video_action_btn" onClick={likeClickHandler}>
-            {likeData.findIndex(
-              (element) => element._id === singleVideo._id
-            ) !== -1 ? (
+            {likeData.some((element) => element._id === singleVideo._id) ? (
               <span className="active-btn">
                 <LikeIcon /> liked
               </span>
@@ -129,9 +127,9 @@ function Watch() {
             )}
           </button>
           <button className="video_action_btn" onClick={watchLaterClickHandler}>
-            {watchLater.data.findIndex(
+            {watchLater.data.some(
               (element) => element._id === singleVideo._id
-            ) !== -1 ? (
+            ) ? (
               <span className="active-btn">
                 <WatchLaterOutlineIcon /> watch later
               </span>
