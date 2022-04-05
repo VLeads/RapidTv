@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./watch.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { VideoEmbed } from "components";
-import { useLike, useUser, useVideo } from "context";
+import { useHistory, useLike, useUser, useVideo, useWatchLater } from "context";
 import {
   LikeIcon,
   SaveToPlaylistIcon,
@@ -12,21 +12,32 @@ import { useApi } from "custom-hooks";
 
 function Watch() {
   const { videoId } = useParams();
-  const [singleVideo, setSingleVideo] = useState({});
-
   const navigate = useNavigate();
-
   const { getToken } = useUser();
 
+  const [singleVideo, setSingleVideo] = useState({});
+
   const { getSingleVideo } = useVideo();
-  const { deleteLikedVideoApi, postLikedVideoApi } = useApi();
+  const {
+    deleteLikedVideoApi,
+    postLikedVideoApi,
+    deleteWatchLaterVideoApi,
+    postWatchLaterVideoApi,
+  } = useApi();
+
+  const { history } = useHistory();
+
+  const {
+    watchLater,
+    postDataUsingApi: postWatchLater,
+    deleteDataUsingApi: deleteWatchLater,
+  } = useWatchLater();
 
   const {
     likes,
     postDataUsingApi: postLike,
     deleteDataUsingApi: deleteLike,
   } = useLike();
-
   const { data: likeData, error: likeError, isLoading: likeLoading } = likes;
 
   useEffect(() => {
@@ -35,10 +46,30 @@ function Watch() {
 
   const { title, avatar, channelName, description, subscribers } = singleVideo;
 
+  const watchLaterClickHandler = () => {
+    if (getToken) {
+      if (
+        watchLater.data.findIndex(
+          (element) => element._id === singleVideo._id
+        ) !== -1
+      ) {
+        deleteWatchLater(deleteWatchLaterVideoApi, singleVideo._id);
+      } else {
+        postWatchLater(postWatchLaterVideoApi, {
+          video: { ...singleVideo },
+        });
+      }
+    } else {
+      navigate("/login");
+    }
+  };
+
   const likeClickHandler = () => {
     if (getToken) {
-      if (likeData.findIndex((element) => element._id === _id) !== -1) {
-        deleteLike(postLikedVideoApi, _id);
+      if (
+        likeData.findIndex((element) => element._id === singleVideo._id) !== -1
+      ) {
+        deleteLike(deleteLikedVideoApi, singleVideo._id);
       } else {
         postLike(postLikedVideoApi, {
           video: { ...singleVideo },
@@ -64,11 +95,30 @@ function Watch() {
         </div>
         <div className="video_actions">
           <button className="video_action_btn" onClick={likeClickHandler}>
-            <LikeIcon /> like
+            {likeData.findIndex(
+              (element) => element._id === singleVideo._id
+            ) !== -1 ? (
+              <span className="active-btn">
+                <LikeIcon /> liked
+              </span>
+            ) : (
+              <>
+                <LikeIcon /> like
+              </>
+            )}
           </button>
-          <button className="video_action_btn">
-            <WatchLaterOutlineIcon />
-            watch later
+          <button className="video_action_btn" onClick={watchLaterClickHandler}>
+            {watchLater.data.findIndex(
+              (element) => element._id === singleVideo._id
+            ) !== -1 ? (
+              <span className="active-btn">
+                <WatchLaterOutlineIcon /> watch later
+              </span>
+            ) : (
+              <>
+                <WatchLaterOutlineIcon /> watch later
+              </>
+            )}
           </button>
           <button className="video_action_btn">
             <SaveToPlaylistIcon />

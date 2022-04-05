@@ -23,7 +23,6 @@ const VideoProvider = ({ children }) => {
       if (response.status === 200) {
         setSingleVideo(response.data.video);
       }
-      console.log("watch", response.data);
     } catch (err) {
       console.log("watch", getVideoApi(id), err.message);
     }

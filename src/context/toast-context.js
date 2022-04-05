@@ -13,22 +13,22 @@ const ToastContext = createContext({
 
 const ToastProvider = ({ children }) => {
   const [toastState, toastDispatch] = useReducer(
-    function toastReducer(toastState, action) {
-      switch (action.type) {
+    function toastReducer(toastState, toastDispatch) {
+      switch (toastDispatch.type) {
         case ACTION_TYPE_SUCCESS:
           return {
             toastClass: "success",
-            toastMsg: action.payload,
+            toastMsg: toastDispatch.payload,
           };
         case ACTION_TYPE_ERROR:
           return {
             toastClass: "error",
-            toastMsg: action.payload,
+            toastMsg: toastDispatch.payload,
           };
         case ACTION_TYPE_WARNING:
           return {
             toastClass: "warning",
-            toastMsg: action.payload,
+            toastMsg: toastDispatch.payload,
           };
         default:
           return toastState;

@@ -1,5 +1,10 @@
 export { Discover } from "./discover/Discover";
-
 export { Homepage } from "./homepage/Homepage";
-
 export { Watch } from "./watch/Watch";
+export { Error404 } from "./error-404/Error404";
+export { Liked } from "./liked/Liked";
+export { History } from "./history/History";
+export { Login } from "./auth/Login";
+export { Signup } from "./auth/Signup";
+export { Trending } from "./trending/Trending";
+export { WatchLater } from "./watch-later/WatchLater";

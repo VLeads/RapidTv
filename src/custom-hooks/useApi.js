@@ -6,10 +6,11 @@ const useApi = () => {
   function getConfig() {
     const config = {
       headers: {
-        authorization: token ? token : "",
+        authorization: token,
         "content-type": "application/json",
       },
     };
+
     return config;
   }
 
@@ -110,7 +111,7 @@ const useApi = () => {
     return axios.delete(URL, getConfig());
   }
 
-  function deleteAllHistoryApi(id) {
+  function deleteAllHistoryApi() {
     const URL = httpConfig + "/user/history/all";
     return axios.delete(URL, getConfig());
   }
@@ -138,6 +139,7 @@ const useApi = () => {
     postLikedVideoApi,
     deleteLikedVideoApi,
     getAllWatchLaterApi,
+    postWatchLaterVideoApi,
     deleteWatchLaterVideoApi,
     getAllPlaylistNamesApi,
     postPlaylistNameApi,

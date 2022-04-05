@@ -59,12 +59,8 @@ export function LikeIcon(props) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
       <path
-        fill="none"
-        stroke="#888888"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M7 11v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3a4 4 0 0 0 4-4V6a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1-2 2h-7a3 3 0 0 1-3-3"
+        fill="#888888"
+        d="M2 9h3v12H2a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1zm5.293-1.293l6.4-6.4a.5.5 0 0 1 .654-.047l.853.64a1.5 1.5 0 0 1 .553 1.57L14.6 8H21a2 2 0 0 1 2 2v2.104a2 2 0 0 1-.15.762l-3.095 7.515a1 1 0 0 1-.925.619H8a1 1 0 0 1-1-1V8.414a1 1 0 0 1 .293-.707z"
       ></path>
     </svg>
   );
@@ -137,6 +133,17 @@ export function SaveToPlaylistIcon(props) {
         strokeLinejoin="round"
         strokeWidth="2"
         d="M19 8H5m0 4h9m-3 4H5m10 0h6m-3-3v6"
+      ></path>
+    </svg>
+  );
+}
+
+export function DeleteIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="#888888"
+        d="M4 8h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8zm3-3V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2h5v2H2V5h5zm2-1v1h6V4H9zm0 8v6h2v-6H9zm4 0v6h2v-6h-2z"
       ></path>
     </svg>
   );
