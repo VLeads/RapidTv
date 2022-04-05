@@ -49,7 +49,10 @@ function HistoryVideoCard({ details, extra, type }) {
 
   return (
     <div className={styles.historyVideoCard}>
-      <div className={styles.historyCardContainer}>
+      <div
+        className={styles.historyCardContainer}
+        onClick={() => navigate(`/watch/${_id}`)}
+      >
         <div className={styles.historyCardImageContainer}>
           <img src={thumbnail} alt="thumbnail" loading="lazy" />
         </div>
