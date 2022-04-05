@@ -6,6 +6,8 @@ import { Header } from "./components";
 import logo from "./logo.png";
 import Mockman from "mockman-js";
 import { CategoryProvider } from "context";
+import { Login } from "pages/auth/Login";
+import { Signup } from "pages/auth/Signup";
 function App() {
   return (
     <div className="App">
@@ -22,6 +24,8 @@ function App() {
           />
           <Route path="/watch/:videoId" element={<Watch />}></Route>
         </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>

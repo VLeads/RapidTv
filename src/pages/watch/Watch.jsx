@@ -1,25 +1,53 @@
 import { useEffect, useState } from "react";
 import "./watch.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { VideoEmbed } from "components";
-import { useVideo } from "context";
+import { useLike, useUser, useVideo } from "context";
 import {
   LikeIcon,
   SaveToPlaylistIcon,
   WatchLaterOutlineIcon,
 } from "assets/icons/icons";
+import { useApi } from "custom-hooks";
 
 function Watch() {
   const { videoId } = useParams();
   const [singleVideo, setSingleVideo] = useState({});
 
+  const navigate = useNavigate();
+
+  const { getToken } = useUser();
+
   const { getSingleVideo } = useVideo();
+  const { deleteLikedVideoApi, postLikedVideoApi } = useApi();
+
+  const {
+    likes,
+    postDataUsingApi: postLike,
+    deleteDataUsingApi: deleteLike,
+  } = useLike();
+
+  const { data: likeData, error: likeError, isLoading: likeLoading } = likes;
 
   useEffect(() => {
     getSingleVideo(videoId, setSingleVideo);
   }, []);
 
   const { title, avatar, channelName, description, subscribers } = singleVideo;
+
+  const likeClickHandler = () => {
+    if (getToken) {
+      if (likeData.findIndex((element) => element._id === _id) !== -1) {
+        deleteLike(postLikedVideoApi, _id);
+      } else {
+        postLike(postLikedVideoApi, {
+          video: { ...singleVideo },
+        });
+      }
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="video_page_container">
@@ -35,7 +63,7 @@ function Watch() {
           <div className="subscribers">({subscribers} subscribers)</div>
         </div>
         <div className="video_actions">
-          <button className="video_action_btn">
+          <button className="video_action_btn" onClick={likeClickHandler}>
             <LikeIcon /> like
           </button>
           <button className="video_action_btn">

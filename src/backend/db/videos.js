@@ -8,6 +8,21 @@ export const videos = [
   {
     _id: uuid(),
     title:
+      "Online Games BAN, Crypto Jail, A73 5G India, Xiaomi 12 Pro in India, NordCE 2Lite",
+    url: "t6QcZ8IqF1w",
+    thumbnail:
+      "https://steamuserimages-a.akamaihd.net/ugc/999178538940429652/8A9738143A0E955E2AB55B6A40B0EF8C6256C722/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+    channelName: "Technical Guruji",
+    description:
+      "Namaskaar Dosto, Tech Talks ke is Episode mein maine aapse kuch interesting Tech News Share ki hai jaise Online Games BAN, Crypto Jail, A73 5G India, Xiaomi 12 Pro in India, Nord CE 2 Lite aur bahut kuch. Mujhe umeed hai ki yeh video aapko pasand aayega.",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AKedOLQ8PSwMRTU8HG_vDunTQ7eYgSqx9ju7vjDNe8dpXm8=s88-c-k-c0x00ffffff-no-rj",
+    categoryName: "news",
+    subscribers: "22M",
+  },
+  {
+    _id: uuid(),
+    title:
       "The Rise Of Technology-Augmented Reality(AR), Virtual Reality(VR) And Mixed Reality(MR) |Simplilearn",
     url: "XLP4YTpUpBI",
     thumbnail:
@@ -34,21 +49,7 @@ export const videos = [
     categoryName: "review",
     subscribers: "450K",
   },
-  {
-    _id: uuid(),
-    title:
-      "Online Games BAN, Crypto Jail, A73 5G India, Xiaomi 12 Pro in India, NordCE 2Lite",
-    url: "t6QcZ8IqF1w",
-    thumbnail:
-      "https://img.freepik.com/free-vector/breaking-news-template-title-with-shadow-world-map-background-screen-tv-vector-design_258787-2587.jpg",
-    channelName: "Technical Guruji",
-    description:
-      "Namaskaar Dosto, Tech Talks ke is Episode mein maine aapse kuch interesting Tech News Share ki hai jaise Online Games BAN, Crypto Jail, A73 5G India, Xiaomi 12 Pro in India, Nord CE 2 Lite aur bahut kuch. Mujhe umeed hai ki yeh video aapko pasand aayega.",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AKedOLQ8PSwMRTU8HG_vDunTQ7eYgSqx9ju7vjDNe8dpXm8=s88-c-k-c0x00ffffff-no-rj",
-    categoryName: "news",
-    subscribers: "22M",
-  },
+
   {
     _id: uuid(),
     title: "Razer DeathAdder V2 - STILL The Best Gaming Mouse After 14 Years?",
@@ -69,7 +70,7 @@ export const videos = [
       "The newest robots 2021 | Incredible and technologically advanced robots",
     thumbnail:
       "https://imageio.forbes.com/specials-images/imageserve/61d66f8dbbb58ffd41f3d174/AI-and-robotics/960x0.jpg?fit=bounds&format=jpg&width=960",
-    url: "LP4qpOLl0",
+    url: "m-LP4qpOLl0",
     channelName: "Pro Robots",
     description:
       "You're on PRO Robotics and in this episode we've collected the latest robots of the year 2021. You will learn about the latest developments in robotics and get to know high-tech and incredible robots. All types of robots from humanoid to robotic grippers to microscopic robots will be featured today. Watch the video to the end and write in the comments which robot did you like best?",

@@ -115,7 +115,21 @@ const useApi = () => {
     return axios.delete(URL, getConfig());
   }
 
+  // Signup
+  function postSignUpDetailsApi(data) {
+    const URL = httpConfig + "/auth/signup";
+    return axios.post(URL, data, getConfig());
+  }
+
+  // Login
+  function postLoginDetailsApi(data) {
+    const URL = httpConfig + "/auth/login";
+    return axios.post(URL, data, getConfig());
+  }
+
   const value = {
+    postLoginDetailsApi,
+    postSignUpDetailsApi,
     getAllVideosApi,
     getVideoApi,
     getAllCategoriesApi,
