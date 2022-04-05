@@ -12,6 +12,11 @@ const ToastContext = createContext({
 });
 
 const ToastProvider = ({ children }) => {
+  const [isModalOpen, setIsModalOpen] = useState({
+    videoData: null,
+    modalState: false,
+  });
+
   const [toastState, toastDispatch] = useReducer(
     function toastReducer(toastState, toastDispatch) {
       switch (toastDispatch.type) {
@@ -41,7 +46,14 @@ const ToastProvider = ({ children }) => {
 
   return (
     <ToastContext.Provider
-      value={{ toastState, toastDispatch, showToast, setShowToast }}
+      value={{
+        toastState,
+        toastDispatch,
+        showToast,
+        setShowToast,
+        isModalOpen,
+        setIsModalOpen,
+      }}
     >
       {children}
     </ToastContext.Provider>

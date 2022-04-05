@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import "./watch.css";
 import { useParams, useNavigate } from "react-router-dom";
-import { VideoEmbed } from "components";
-import { useHistory, useLike, useUser, useVideo, useWatchLater } from "context";
+import { Modal, VideoEmbed } from "components";
+import {
+  useHistory,
+  useLike,
+  useToast,
+  useUser,
+  useVideo,
+  useWatchLater,
+} from "context";
 import {
   LikeIcon,
   SaveToPlaylistIcon,
@@ -80,6 +87,20 @@ function Watch() {
     }
   };
 
+  const { isModalOpen, setIsModalOpen } = useToast();
+
+  const playlistHandler = () => {
+    if (getToken) {
+      setIsModalOpen((modal) => ({
+        ...modal,
+        modalState: true,
+        videoData: singleVideo,
+      }));
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className="video_page_container">
       <VideoEmbed data={singleVideo} />
@@ -120,7 +141,7 @@ function Watch() {
               </>
             )}
           </button>
-          <button className="video_action_btn">
+          <button className="video_action_btn" onClick={playlistHandler}>
             <SaveToPlaylistIcon />
             save
           </button>
@@ -129,6 +150,7 @@ function Watch() {
       <div className="video_description">
         <p>{description}</p>
       </div>
+      <Modal />
     </div>
   );
 }

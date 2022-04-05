@@ -8,6 +8,7 @@ import { makeServer } from "./server";
 import {
   HistoryProvider,
   LikeProvider,
+  PlaylistProvider,
   ToastProvider,
   UserProvider,
   VideoProvider,
@@ -22,15 +23,17 @@ ReactDOM.render(
     <BrowserRouter>
       <ToastProvider>
         <VideoProvider>
-          <HistoryProvider>
-            <WatchLaterProvider>
-              <LikeProvider>
-                <UserProvider>
-                  <App />
-                </UserProvider>
-              </LikeProvider>
-            </WatchLaterProvider>
-          </HistoryProvider>
+          <PlaylistProvider>
+            <HistoryProvider>
+              <WatchLaterProvider>
+                <LikeProvider>
+                  <UserProvider>
+                    <App />
+                  </UserProvider>
+                </LikeProvider>
+              </WatchLaterProvider>
+            </HistoryProvider>
+          </PlaylistProvider>
         </VideoProvider>
       </ToastProvider>
     </BrowserRouter>

@@ -1,11 +1,17 @@
 import React from "react";
 import styles from "./card.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useHistory, useLike, useUser, useWatchLater } from "context";
+import {
+  useHistory,
+  useLike,
+  usePlaylist,
+  useUser,
+  useWatchLater,
+} from "context";
 import { DeleteIcon } from "assets/icons/icons";
 import { useApi } from "custom-hooks";
 
-function HistoryVideoCard({ details, type }) {
+function HistoryVideoCard({ details, extra, type }) {
   const navigate = useNavigate();
   const { getToken } = useUser();
   const {
@@ -27,6 +33,8 @@ function HistoryVideoCard({ details, type }) {
   const { deleteDataUsingApi: deleteWatchLater } = useWatchLater();
   const { deleteDataUsingApi: deleteLike } = useLike();
 
+  const { deleteFromPlaylistHandler, playlist } = usePlaylist();
+
   const onClickHandler = () => {
     if (type === "fromhistory") {
       deleteFromHistory(_id);
@@ -34,6 +42,8 @@ function HistoryVideoCard({ details, type }) {
       deleteWatchLater(deleteWatchLaterVideoApi, _id);
     } else if (type === "fromliked") {
       deleteLike(deleteLikedVideoApi, _id);
+    } else if (type === "fromplaylist") {
+      deleteFromPlaylistHandler(extra._id, details._id, extra.title);
     }
   };
 

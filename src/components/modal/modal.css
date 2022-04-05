@@ -1,0 +1,52 @@
+.modal-content {
+    width: 30rem;
+    border-radius: 8px;
+    background-color: var(--COLOR-LIGHT-BACKGROUND);
+    color: var(--COLOR-WHITE);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+}
+
+.close-icon {
+    font-size: 3rem;
+    font-weight: 500;
+    color: red;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.modal-body label input {
+    padding: 2px 5px;
+    outline: none;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-btn {
+    border-radius: 8px;
+    width: fit-content;
+    padding: 6px 15px;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.playlist_label {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 4px
+}
+
+.playlist_label input {
+    width: 18px;
+    height: 18px;
+}

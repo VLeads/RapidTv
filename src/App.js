@@ -5,6 +5,11 @@ import {
   History,
   Trending,
   WatchLater,
+  Playlist,
+  Signup,
+  Login,
+  Homepage,
+  Liked,
 } from "pages";
 
 import { Route, Routes } from "react-router-dom";
@@ -13,8 +18,6 @@ import { Header } from "./components";
 import logo from "./logo.png";
 import Mockman from "mockman-js";
 import { CategoryProvider } from "context";
-
-import { Signup, Login, Homepage, Liked } from "pages";
 
 function App() {
   return (
@@ -35,6 +38,8 @@ function App() {
           <Route path="/history" element={<History />}></Route>
           <Route path="/trending" element={<Trending />}></Route>
           <Route path="/watch-later" element={<WatchLater />}></Route>
+          <Route path="/playlist/" element={<Playlist />}></Route>
+          <Route path="/playlist/:playlistId" element={<Playlist />}></Route>
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
