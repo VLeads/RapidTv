@@ -1,17 +1,17 @@
-.sidebar{
+.sidebar {
     position: fixed;
     width: 22rem;
     height: 100vh;
     left: 0;
     overflow: hidden;
-    padding: 0 2rem 1rem 3rem;;
+    padding: 0 2rem 1rem 3rem;
 }
 
-.sidebar_links{
+.sidebar_links {
     list-style: none;
 }
 
-.sidebar_links  li {
+.sidebar_links li {
     cursor: pointer;
     height: 48px;
     margin-bottom: 5px;
@@ -19,10 +19,12 @@
     align-items: center;
     font-weight: 300;
     font-size: 1.6rem;
-    color: var(--COLOR-GREY-TEXT);
+    color: var(--COLOR-GREY-400);
 }
 
-.sidebar-icon{
+
+
+.sidebar_links li span {
     height: 35px;
     width: 35px;
     display: flex;
@@ -31,16 +33,54 @@
     background-color: var(--COLOR-LIGHT-BACKGROUND);
     border-radius: 8px;
     margin-right: 1rem;
-    color: var(--COLOR-GREY-TEXT);
+    color: var(--COLOR-GREY-400);
     font-size: 2.2rem;
 }
 
-.sidebar_links .active-link  li{
+.sidebar_links .active-link li {
     color: var(--COLOR-WHITE);
     font-weight: 800
 }
 
-.sidebar_links  .active-link span{
+.sidebar_links .active-link span {
     background-color: var(--primary-dark-color);
     font-weight: 800;
+    color: var(--COLOR-WHITE);
+}
+
+.sidebar_links li:hover,
+.sidebar_links span:hover {
+    color: var(--COLOR-WHITE);
+    transition: .3s linear;
+}
+
+.sidebar_links span:hover {
+    background-color: var(--primary-dark-color);
+    color: var(--COLOR-WHITE);
+}
+
+li{
+    list-style: none;
+}
+
+.personal_links {
+    margin-left: 4.5rem;
+    bottom: 15rem;
+}
+
+.personal_links li {
+    text-decoration: none;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5rem;
+    margin-right: 1rem;
+    color: var(--COLOR-GREY-400);
+    font-size: 2.2rem;
+}
+
+.personal_links li:hover{
+    color: var(--COLOR-WHITE);
 }

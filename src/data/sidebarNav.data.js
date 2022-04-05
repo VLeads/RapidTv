@@ -1,7 +1,7 @@
 import {
   HistoryIcon,
   HomeIcon,
-  LikeOutlineIcon,
+  LikeIcon,
   PlaylistIcon,
   TrendingIcon,
   WatchLaterOutlineIcon,
@@ -37,7 +37,7 @@ export const sidebarNav = [
     _id: uuid(),
     linkTo: "liked",
     linkName: "Liked",
-    icon: <LikeOutlineIcon />,
+    icon: <LikeIcon />,
   },
   {
     _id: uuid(),

@@ -1,4 +1,4 @@
-import { Discover } from "pages";
+import { Discover, Watch } from "pages";
 import { Homepage } from "pages/homepage/Homepage";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -20,6 +20,7 @@ function App() {
               </CategoryProvider>
             }
           />
+          <Route path="/watch/:videoId" element={<Watch />}></Route>
         </Route>
         <Route path="/mockman" element={<Mockman />} />
       </Routes>

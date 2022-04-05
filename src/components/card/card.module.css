@@ -4,7 +4,9 @@
     border-radius: 8px;
     background-color: var(--COLOR-LIGHT-BACKGROUND);
     margin-bottom: 2rem;
+    cursor: pointer;
 }
+
 
 .cardImageContainer img {
     width: 100%;
