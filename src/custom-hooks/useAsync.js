@@ -30,6 +30,7 @@ export const useAsync = (api, fetchData, token) => {
 
         case ACTION_TYPE_SUCCESS:
           return { ...state, isLoading: false, data: action.payload };
+
         case ACTION_TYPE_ADD_VIDEO_TO_PLAYLIST:
           return {
             ...state,
@@ -46,7 +47,7 @@ export const useAsync = (api, fetchData, token) => {
           return { ...state, isLoading: false, error: action.payload };
 
         default:
-          return state;
+          return { ...state };
       }
     },
     {

@@ -5,7 +5,8 @@
 .playlist-sidebar {
     width: 30rem;
     background-color: #1c1c1c;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     padding-top: 1.5rem;
     border-left: 0.5px solid var(--COLOR-GREY-400)
 }

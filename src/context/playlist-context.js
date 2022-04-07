@@ -8,6 +8,7 @@ import {
   ACTION_TYPE_SUCCESS,
 } from "utils";
 import { useToast } from "./toast-context";
+import { useUser } from "./user-context";
 
 const PlaylistContext = createContext();
 
@@ -16,10 +17,10 @@ const PlaylistProvider = ({ children }) => {
 
   const { getAllPlaylistNamesApi, postPlaylistDataApi, deletePlaylistDataApi } =
     useApi();
-    
+
   const { toastState, toastDispatch, showToast, setShowToast } = useToast();
 
-  const getToken = localStorage.getItem("token");
+  const { getToken } = useUser();
 
   const {
     state: playlist,
@@ -29,8 +30,6 @@ const PlaylistProvider = ({ children }) => {
   } = useAsync(getAllPlaylistNamesApi, fetchData, getToken);
 
   const addToPlaylistHandler = async (data, _id, title) => {
-    const token = localStorage.getItem("token");
-
     try {
       const response = await postPlaylistDataApi(_id, { video: { ...data } });
 
@@ -62,8 +61,6 @@ const PlaylistProvider = ({ children }) => {
   };
 
   const deleteFromPlaylistHandler = async (playlistId, videoId, title) => {
-    const token = localStorage.getItem("token");
-
     try {
       const response = await deletePlaylistDataApi(playlistId, videoId);
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import banner from "assets/img/Rapidtv-poster.png";
 import "./discover.css";
 import { useCategory, useVideo } from "context";
-import { VideoCard } from "components";
+import { Modal, VideoCard } from "components";
 
 export const Discover = () => {
   const [selectedTab, setSelectedTab] = useState("all");
@@ -24,10 +24,7 @@ export const Discover = () => {
     setCategoryVideos(videos.data);
   }, [videos]);
 
-  console.log("check", categoryVideos);
-
   const activeBtnHandler = (e) => {
-    console.log("btn", e.target.name);
     setSelectedTab(e.target.name);
   };
 
@@ -73,6 +70,7 @@ export const Discover = () => {
           </li>
         ))}
       </div>
+      <Modal />
     </div>
   );
 };

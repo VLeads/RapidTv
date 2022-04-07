@@ -12,6 +12,8 @@ const ToastContext = createContext({
 });
 
 const ToastProvider = ({ children }) => {
+  const [notShowPlaylistNames, setNotShowPlaylistNames] = useState(false);
+
   const [isModalOpen, setIsModalOpen] = useState({
     videoData: null,
     modalState: false,
@@ -53,6 +55,8 @@ const ToastProvider = ({ children }) => {
         setShowToast,
         isModalOpen,
         setIsModalOpen,
+        notShowPlaylistNames,
+        setNotShowPlaylistNames,
       }}
     >
       {children}

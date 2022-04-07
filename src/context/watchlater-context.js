@@ -10,7 +10,8 @@ const WatchLaterProvider = ({ children }) => {
 
   const { getAllWatchLaterApi } = useApi();
 
-  const getToken = localStorage.getItem("token");
+  const { getToken } = useUser();
+
   const {
     state: watchLater,
     postDataUsingApi,

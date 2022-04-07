@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import "./history.css";
-import { HistoryVideoCard, Toast } from "components";
-import { useHistory } from "context";
+import { HorizontalVideoCard, Toast } from "components";
+import { useHistory, useUser } from "context";
 import { Link } from "react-router-dom";
 import { useApi } from "custom-hooks";
 
 function History() {
   const { history, historyLoading, deleteAllHistory } = useHistory();
 
-  const authToken = localStorage.getItem("token");
+  const { getToken: authToken } = useUser();
 
   return (
     <div className="history_videos_container">
@@ -30,7 +30,7 @@ function History() {
             <div className="history_videos">
               {history.map((details) => (
                 <li key={details._id}>
-                  <HistoryVideoCard details={details} type={"fromhistory"}/>
+                  <HorizontalVideoCard details={details} type={"fromhistory"} />
                 </li>
               ))}
             </div>

@@ -98,6 +98,12 @@ export const Signup = () => {
     }
   };
 
+  const togglePassword = () => {
+    setInputType((inputType) =>
+      inputType === "password" ? "text" : "password"
+    );
+  };
+
   return (
     <main className="auth-container">
       <Toast />
@@ -150,16 +156,26 @@ export const Signup = () => {
 
           <div className="input-group">
             <label> Password </label>
-            <input
-              className="input-box"
-              maxLength="28"
-              type="password"
-              name="password"
-              placeholder="******"
-              onChange={inputChange}
-              value={signupFormData.password}
-              required
-            />
+            <div className="password-input">
+              <input
+                className="input-box"
+                maxLength="28"
+                type={inputType}
+                name="password"
+                placeholder="******"
+                onChange={inputChange}
+                value={signupFormData.password}
+                required
+              />
+              <div className="password-eye-btn" onClick={togglePassword}>
+                <i
+                  className={`fa fa-eye${
+                    inputType === "password" ? "-slash" : ""
+                  }`}
+                  aria-hidden="true"
+                ></i>
+              </div>
+            </div>
           </div>
 
           <div className="select-box">

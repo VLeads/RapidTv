@@ -1,5 +1,5 @@
-import { HistoryVideoCard } from "components";
-import { useLike } from "context";
+import { HorizontalVideoCard } from "components";
+import { useLike, useUser } from "context";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./liked.css";
@@ -8,7 +8,7 @@ function Liked() {
   const { likes } = useLike();
   const { data, error, isLoading } = likes;
 
-  const authToken = localStorage.getItem("token");
+  const { getToken: authToken } = useUser();
 
   return (
     <div className="liked_videos_container">
@@ -22,7 +22,7 @@ function Liked() {
             <div className="liked_videos">
               {data.map((details) => (
                 <li key={details._id}>
-                  <HistoryVideoCard details={details} type={"fromliked"} />
+                  <HorizontalVideoCard details={details} type={"fromliked"} />
                 </li>
               ))}
             </div>
@@ -37,7 +37,6 @@ function Liked() {
             style={{
               textDecoration: "underline",
               color: "red",
-              paddingRight: "10px",
             }}
           >
             Login

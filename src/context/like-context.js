@@ -10,7 +10,8 @@ const LikeProvider = ({ children }) => {
 
   const { getAllLikedVideosApi } = useApi();
 
-  const getToken = localStorage.getItem("token");
+  const { getToken } = useUser();
+
   const {
     state: likes,
     postDataUsingApi,

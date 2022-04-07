@@ -1,5 +1,5 @@
-import { HistoryVideoCard } from "components";
-import { useWatchLater } from "context";
+import { HorizontalVideoCard, Modal } from "components";
+import { useUser, useWatchLater } from "context";
 import React from "react";
 import { Link } from "react-router-dom";
 import "../liked/liked.css";
@@ -8,7 +8,7 @@ function WatchLater() {
   const { watchLater } = useWatchLater();
   const { data, error, isLoading } = watchLater;
 
-  const authToken = localStorage.getItem("token");
+  const { getToken: authToken } = useUser();
 
   return (
     <div className="liked_videos_container">
@@ -22,7 +22,10 @@ function WatchLater() {
             <div className="liked_videos">
               {data.map((details) => (
                 <li key={details._id}>
-                  <HistoryVideoCard details={details} type={"fromwatchlater"} />
+                  <HorizontalVideoCard
+                    details={details}
+                    type={"fromwatchlater"}
+                  />
                 </li>
               ))}
             </div>
@@ -39,7 +42,6 @@ function WatchLater() {
             style={{
               textDecoration: "underline",
               color: "red",
-              paddingRight: "10px",
             }}
           >
             Login
@@ -47,6 +49,7 @@ function WatchLater() {
           &nbsp; to view watch later videos
         </div>
       )}
+      <Modal />
     </div>
   );
 }
