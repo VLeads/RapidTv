@@ -168,8 +168,14 @@ export const Login = () => {
           </div>
 
           <div className="select-box">
-            <label htmlFor="accept">
-              <input type="checkbox" name="accept" />
+            <label
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <input type="checkbox" name="accept" id="accept" />
               Remember me
             </label>
             <a className="forgot-pass" href="">

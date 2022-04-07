@@ -19,6 +19,10 @@
     text-decoration: underline;
 }
 
+.input-box {
+    font-weight: 600;
+}
+
 .auth-alternative:hover {
     color: var(--primary-color)
 }
