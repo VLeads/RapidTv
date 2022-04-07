@@ -23,7 +23,7 @@ Rapid TV - Video Library App using [Rapid UI](https://rapidui.netlify.app/) and 
 ## 📕 Table of Contents
 
 - [About](#-about)
-- [It's Features](#-its--features)
+- [Its Features](#-its-features)
 - [Getting Started](#-getting-started)
 - [Connect with me](#-connect-with-me)
 
@@ -39,7 +39,7 @@ Give it a try today.
 
 ---
 
-## 🚀 It's Features
+## 🚀 Its Features
 
 **Like a Video**
 
