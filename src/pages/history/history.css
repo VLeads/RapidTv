@@ -9,12 +9,12 @@
     font-size: 3rem;
     text-align: center;
     text-decoration: underline;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
 }
 
 .history_videos_container .empty_list {
-    color: var(--COLOR-GREY-100);
     margin-top: 4rem;
+    color: var(--COLOR-GREY-100);
     text-align: center;
     font-size: 2rem;
     display: flex;

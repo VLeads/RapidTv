@@ -20,8 +20,8 @@
 }
 
 .all_videos_container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-top: 1.5rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(36rem, max-content));
+
 }

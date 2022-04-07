@@ -16,6 +16,7 @@ export const Signup = () => {
   const navigate = useNavigate();
 
   const { postSignUpDetailsApi } = useApi();
+  const [inputType, setInputType] = useState("password");
 
   const { toastState, toastDispatch, showToast, setShowToast } = useToast();
   const { setIsLoggedin, getToken, setGetToken } = useUser();
