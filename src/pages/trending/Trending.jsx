@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import banner from "assets/img/Rapidtv-poster.png";
 import "../discover/discover.css";
 import { useCategory, useVideo } from "context";
-import { VideoCard } from "components";
+import { Modal, VideoCard } from "components";
 
 export const Trending = () => {
   const { videos } = useVideo();
@@ -17,6 +17,7 @@ export const Trending = () => {
           </li>
         ))}
       </div>
+      <Modal />
     </div>
   );
 };

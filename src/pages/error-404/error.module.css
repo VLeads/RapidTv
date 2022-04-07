@@ -22,10 +22,11 @@ img {
     display: block;
     outline: none;
     border: none;
-    width: 40rem;
-    padding: 1.2rem;
+    width: auto;
+    padding: 0.5rem 1rem;
     background-color: var(--primary-color);
     cursor: pointer;
     font-size: 2rem;
-    border-radius: 8px;
+    border-radius: 4px;
+    margin-top: 2rem;
 }

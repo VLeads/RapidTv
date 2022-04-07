@@ -3,14 +3,14 @@ import "./header.css";
 import logo from "assets/img/rapidtv-logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { ACTION_TYPE_SUCCESS } from "utils";
-import { useToast } from "context";
+import { useToast, useUser } from "context";
 import { Toast } from "components/toast/Toast";
+import { SearchIcon } from "assets/icons/icons";
 
 export const Header = () => {
   const navigate = useNavigate();
 
-  const authToken = localStorage.getItem("token");
-
+  const { getToken: authToken, setGetToken } = useUser();
   const { toastDispatch, setShowToast } = useToast();
 
   const logoutHandler = () => {
@@ -23,6 +23,7 @@ export const Header = () => {
       setShowToast(false);
     }, 2500);
     localStorage.removeItem("token");
+    setGetToken("");
     navigate("/", { replace: true });
   };
 
@@ -34,11 +35,14 @@ export const Header = () => {
         </Link>
         <div className="navbar-items">
           <div className="search-box">
-            <i className="fas fa-search"></i>
+            <span className="search-icon">
+
+            <SearchIcon />
+            </span>
             <input
               type="text"
               placeholder="Search..."
-              className="header-serachbox"
+              className="header-searchbox"
             />
           </div>
           <ul className="nav-links">

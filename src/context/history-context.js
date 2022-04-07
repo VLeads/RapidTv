@@ -3,11 +3,12 @@ import { useApi, useAsync } from "custom-hooks";
 import { createContext, useContext, useState } from "react";
 import { ACTION_TYPE_ERROR, ACTION_TYPE_SUCCESS } from "utils";
 import { useToast } from "./toast-context";
+import { useUser } from "./user-context";
 
 const HistoryContext = createContext(null);
 
 const HistoryProvider = ({ children }) => {
-  const token = localStorage.getItem("token");
+  const { getToken } = useUser();
 
   const {
     getHistoryApi,

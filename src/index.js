@@ -22,19 +22,19 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ToastProvider>
-        <VideoProvider>
-          <PlaylistProvider>
-            <HistoryProvider>
-              <WatchLaterProvider>
-                <LikeProvider>
-                  <UserProvider>
+        <UserProvider>
+          <VideoProvider>
+            <PlaylistProvider>
+              <HistoryProvider>
+                <WatchLaterProvider>
+                  <LikeProvider>
                     <App />
-                  </UserProvider>
-                </LikeProvider>
-              </WatchLaterProvider>
-            </HistoryProvider>
-          </PlaylistProvider>
-        </VideoProvider>
+                  </LikeProvider>
+                </WatchLaterProvider>
+              </HistoryProvider>
+            </PlaylistProvider>
+          </VideoProvider>
+        </UserProvider>
       </ToastProvider>
     </BrowserRouter>
   </React.StrictMode>,

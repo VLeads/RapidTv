@@ -3,5 +3,5 @@ export { Sidebar } from "./sidebar/Sidebar";
 export { VideoCard } from "./card/VideoCard";
 export { VideoEmbed } from "./video-embed/VideoEmbed";
 export { Toast } from "./toast/Toast";
-export { HistoryVideoCard } from "./card/HistoryVideoCard";
+export { HorizontalVideoCard } from "./card/HorizontalVideoCard";
 export { Modal } from "./modal/Modal";

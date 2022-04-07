@@ -6,8 +6,6 @@ import { createContext, useContext, useEffect } from "react";
 const VideoContext = createContext();
 
 const VideoProvider = ({ children }) => {
-  // const [singleVideo, setSingleVideo] = useState({});
-
   const fetchData = "videos";
 
   const { getAllVideosApi, getVideoApi } = useApi();

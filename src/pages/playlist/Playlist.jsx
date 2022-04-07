@@ -1,38 +1,57 @@
 import React, { useEffect } from "react";
 import "../history/history.css";
-import { HistoryVideoCard, Toast } from "components";
-import { usePlaylist } from "context";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { HorizontalVideoCard, Modal, Toast } from "components";
+import { usePlaylist, useToast, useUser } from "context";
+import { Link, NavLink, useParams, useNavigate } from "react-router-dom";
 import { useApi } from "custom-hooks";
 import "./playlist.css";
 
 function Playlist() {
   const { playlistId } = useParams();
+  const navigate = useNavigate();
 
-  const authToken = localStorage.getItem("token");
+  const { getToken: authToken } = useUser();
+  const { isModalOpen, setIsModalOpen, setNotShowPlaylistNames } = useToast();
+  const { deletePlaylistNameApi } = useApi();
 
   const { playlist, deleteDataUsingApi } = usePlaylist();
   const { data: playlistData } = playlist;
 
-  const { deletePlaylistNameApi } = useApi();
-
   const currentPlaylist = playlistData.find((item) => item._id === playlistId);
-
-  console.log("current", playlist, currentPlaylist);
 
   const deletePlaylist = () => {
     deleteDataUsingApi(deletePlaylistNameApi, playlistId);
+  };
+
+  const createPlaylistHandler = () => {
+    if (authToken) {
+      setNotShowPlaylistNames(true);
+
+      setIsModalOpen((modal) => ({
+        ...modal,
+        modalState: true,
+      }));
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
     <div className="history_videos_container playlist_container">
       <div className="playlist-sidebar">
         <div className="page_heading playlist_heading">Playlists</div>
+        <button
+          className="btn btn-primary btn-primary-outline"
+          style={{ marginBottom: "2rem" }}
+          onClick={createPlaylistHandler}
+        >
+          Create New Playlist
+        </button>
 
         <ul>
           {playlist?.data.length !== 0 &&
             playlist?.data.map(({ title, _id, videos }) => (
-              <Link to={`/playlist/${_id}`}>
+              <Link to={`/playlist/${_id}`} key={_id}>
                 <li
                   className={`playlist-sidebar-nav ${
                     _id === playlistId ? "active-playlist-link" : ""
@@ -66,15 +85,21 @@ function Playlist() {
                   )}
                 </div>
                 <div className="history_videos">
-                  {currentPlaylist?.videos.map((details) => (
-                    <li key={details._id}>
-                      <HistoryVideoCard
-                        details={details}
-                        extra={currentPlaylist}
-                        type={"fromplaylist"}
-                      />
-                    </li>
-                  ))}
+                  {currentPlaylist?.videos.length > 0 ? (
+                    currentPlaylist?.videos.map((details) => (
+                      <li key={details._id}>
+                        <HorizontalVideoCard
+                          details={details}
+                          extra={currentPlaylist}
+                          type={"fromplaylist"}
+                        />
+                      </li>
+                    ))
+                  ) : (
+                    <div className="empty_list">
+                      You have not saved any video to this playlist yet{" "}
+                    </div>
+                  )}
                 </div>
               </>
             )}
@@ -95,6 +120,7 @@ function Playlist() {
         )}
       </div>
       <Toast />
+      <Modal />
     </div>
   );
 }

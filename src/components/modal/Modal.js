@@ -10,6 +10,7 @@ export function Modal() {
   const {
     isModalOpen: { modalState, videoData },
     setIsModalOpen,
+    notShowPlaylistNames,
   } = useToast();
 
   const { videos } = useVideo();
@@ -17,7 +18,6 @@ export function Modal() {
   const { postPlaylistNameApi } = useApi();
 
   const { toastDispatch, showToast, setShowToast } = useToast();
-
   const {
     playlist,
     postDataUsingApi,
@@ -49,8 +49,6 @@ export function Modal() {
     }
   };
 
-  console.log("playlist", playlist);
-
   return (
     <div
       id="myModal"
@@ -66,16 +64,18 @@ export function Modal() {
         </div>
         <div className="modal-body">
           {playlist?.data.length > 0 &&
+            !notShowPlaylistNames &&
             playlist?.data.map((item) => (
               <div key={item._id}>
                 <label className="playlist_label">
                   <input
                     type="checkbox"
-                    checked={item?.videos.find(
+                    id={item.title}
+                    checked={item?.videos.some(
                       ({ _id }) => _id === videoData._id
                     )}
-                    onClick={() => {
-                      item?.videos.find(({ _id }) => _id === videoData._id)
+                    onChange={() => {
+                      item?.videos.some(({ _id }) => _id === videoData._id)
                         ? deleteFromPlaylistHandler(
                             item._id,
                             videoData._id,

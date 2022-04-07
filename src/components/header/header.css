@@ -1,20 +1,34 @@
-.navbar{
+.navbar {
     height: 10rem;
     background-color: inherit;
     box-shadow: inherit;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background-color: var(--COLOR-BACKGROUND);
 }
 
-.search-box > .header-serachbox{
-    color: var(--COLOR-WHITE);
-    border:none;
-}
-
-.navbar-items{
+.search-box {
     display: flex;
-    margin-left:auto
+    align-items: center;
 }
 
-.search-box{
+.search-icon {
+    color: var(--COLOR-WHITE);
+    font-size: 2.5rem;
+}
+
+.search-box>.header-searchbox {
+    color: var(--COLOR-WHITE);
+    border: none;
+}
+
+.navbar-items {
+    display: flex;
+    margin-left: auto
+}
+
+.search-box {
     border-radius: 10px;
     width: 45rem;
     background-color: var(--COLOR-LIGHT-BACKGROUND);
