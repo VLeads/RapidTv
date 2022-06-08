@@ -33,7 +33,7 @@ export const Sidebar = () => {
           </a>
         </li>
         <li>
-          <a href="linkedin.com/in/vishalkumar28/" target="_blank">
+          <a href="https://linkedin.com/in/vishalkumar28/" target="_blank">
             <LinkedinIcon />
           </a>
         </li>
