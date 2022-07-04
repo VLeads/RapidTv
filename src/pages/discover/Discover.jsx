@@ -77,7 +77,12 @@ export const Discover = () => {
             </li>
           ))
         ) : (
-          <div>No video found</div>
+          <div className="no-search">
+            <div>No video found</div>
+            <div className="no-search-text">
+              Try searching for something else...
+            </div>
+          </div>
         )}
       </div>
       <Modal />

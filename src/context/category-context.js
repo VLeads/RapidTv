@@ -41,8 +41,6 @@ const CategoryProvider = ({ children }) => {
     );
   };
 
-  console.log("category", categoryVideos);
-
   const value = {
     categories,
     categoryVideos,

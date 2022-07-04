@@ -128,7 +128,7 @@
 
 .deleteIcon {
     font-size: 3rem;
-    margin-right: 0.8rem;
+    margin-right: 2.5rem;
 }
 
 .deleteIcon :hover {
@@ -168,14 +168,23 @@
     border-radius: 50%;
 }
 
-.horizontalVideoMenuCard {
+.horizontalVideoMenuCard,
+.horizontalVideoMenuCardForHistory {
     position: absolute;
     background-color: var(--COLOR-BACKGROUND);
     width: 20rem;
     color: var(--COLOR-GREY-100);
-    top: 27px;
-    right: 37px;
     font-size: 1.3rem;
+}
+
+.horizontalVideoMenuCard {
+    top: 35.5px;
+    right: 2rem;
+}
+
+.horizontalVideoMenuCardForHistory {
+    top: 35px;
+    left: 58rem;
 }
 
 .videoMenuCard {

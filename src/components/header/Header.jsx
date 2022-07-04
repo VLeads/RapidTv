@@ -28,8 +28,6 @@ export const Header = () => {
     navigate("/", { replace: true });
   };
 
-  console.log("seach", searchTerm);
-
   const searchNavigateHandler = () => {
     if (location.pathname !== "/") {
       navigate("/");

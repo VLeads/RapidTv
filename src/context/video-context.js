@@ -15,6 +15,8 @@ const VideoProvider = ({ children }) => {
     fetchData
   );
 
+  console.log("state", videos);
+
   const getSingleVideo = async (id, setSingleVideo) => {
     try {
       const response = await getVideoApi(id);
@@ -26,7 +28,11 @@ const VideoProvider = ({ children }) => {
     }
   };
 
-  const value = { videos, videosDispatch, getSingleVideo };
+  const value = {
+    videos,
+    videosDispatch,
+    getSingleVideo,
+  };
 
   return (
     <VideoContext.Provider value={value}>{children}</VideoContext.Provider>

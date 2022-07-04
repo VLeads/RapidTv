@@ -91,6 +91,13 @@ function HorizontalVideoCard({ details, extra, type }) {
     }
   };
 
+  console.log("est", type);
+
+  const cardType =
+    type === "fromhistory"
+      ? styles.horizontalVideoMenuCard
+      : styles.horizontalVideoMenuCardForHistory;
+
   return (
     <div className={styles.videoCardParent}>
       <div className={styles.historyVideoCard}>
@@ -124,7 +131,14 @@ function HorizontalVideoCard({ details, extra, type }) {
             <OptionsIcon />
           </span>
           {showVideoMenu && (
-            <ol className={`list ${styles.horizontalVideoMenuCard}`}>
+            <ol
+              className={`list
+                ${
+                  type === "fromhistory"
+                    ? styles.horizontalVideoMenuCardForHistory
+                    : styles.horizontalVideoMenuCard
+                }`}
+            >
               <li
                 className={styles.videoMenuCardItem}
                 onClick={watchLaterClickHandler}

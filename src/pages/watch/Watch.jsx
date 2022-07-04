@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./watch.css";
-import { useParams, useNavigate } from "react-router-dom";
-import { Modal, VideoEmbed } from "components";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { Modal } from "components";
 import {
   useHistory,
   useLike,
@@ -24,7 +24,7 @@ function Watch() {
 
   const [singleVideo, setSingleVideo] = useState({});
 
-  const { getSingleVideo } = useVideo();
+  const { getSingleVideo, isLoading, setIsLoading } = useVideo();
   const {
     deleteLikedVideoApi,
     postLikedVideoApi,
@@ -100,58 +100,83 @@ function Watch() {
       navigate("/login");
     }
   };
-
+  console.log("test132", singleVideo);
   return (
     <>
       <div className="video_page_container">
-        <VideoEmbed data={singleVideo} />
-        <h2 className="video_title">{title}</h2>
-        <div className="video_details">
-          <div className="channel_info">
-            <div className="video_avatar">
-              <img src={avatar} alt="avatar" />
-            </div>
-            <div className="channel_name">{channelName}</div>
+        {Object.keys(singleVideo).length !== 0 ? (
+          <>
+            <iframe
+              width="1000"
+              height="455"
+              src={`https://www.youtube.com/embed/${singleVideo?.url}?autoplay=1`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="embed title"
+            />
 
-            <div className="subscribers">({subscribers} subscribers)</div>
+            <h2 className="video_title">{title}</h2>
+            <div className="video_details">
+              <div className="channel_info">
+                <div className="video_avatar">
+                  <img src={avatar} alt="avatar" />
+                </div>
+                <div className="channel_name">{channelName}</div>
+
+                <div className="subscribers">({subscribers} subscribers)</div>
+              </div>
+              <div className="video_actions">
+                <button className="video_action_btn" onClick={likeClickHandler}>
+                  {likeData.some(
+                    (element) => element._id === singleVideo._id
+                  ) ? (
+                    <span className="active-btn">
+                      <LikeIcon /> liked
+                    </span>
+                  ) : (
+                    <>
+                      <LikeIcon /> like
+                    </>
+                  )}
+                </button>
+                <button
+                  className="video_action_btn"
+                  onClick={watchLaterClickHandler}
+                >
+                  {watchLater.data.some(
+                    (element) => element._id === singleVideo._id
+                  ) ? (
+                    <span className="active-btn">
+                      <WatchLaterOutlineIcon /> watch later
+                    </span>
+                  ) : (
+                    <>
+                      <WatchLaterOutlineIcon /> watch later
+                    </>
+                  )}
+                </button>
+                <button className="video_action_btn" onClick={playlistHandler}>
+                  <SaveToPlaylistIcon />
+                  save
+                </button>
+              </div>
+            </div>
+            <div className="video_description">
+              <p>{description}</p>
+            </div>
+          </>
+        ) : (
+          <div className="not-available">
+            <p>This video is no loger available</p>
+
+            <Link to="/">
+              <button className="btn btn-info not-available-btn ">
+                GO BACK TO HOMEPAGE
+              </button>
+            </Link>
           </div>
-          <div className="video_actions">
-            <button className="video_action_btn" onClick={likeClickHandler}>
-              {likeData.some((element) => element._id === singleVideo._id) ? (
-                <span className="active-btn">
-                  <LikeIcon /> liked
-                </span>
-              ) : (
-                <>
-                  <LikeIcon /> like
-                </>
-              )}
-            </button>
-            <button
-              className="video_action_btn"
-              onClick={watchLaterClickHandler}
-            >
-              {watchLater.data.some(
-                (element) => element._id === singleVideo._id
-              ) ? (
-                <span className="active-btn">
-                  <WatchLaterOutlineIcon /> watch later
-                </span>
-              ) : (
-                <>
-                  <WatchLaterOutlineIcon /> watch later
-                </>
-              )}
-            </button>
-            <button className="video_action_btn" onClick={playlistHandler}>
-              <SaveToPlaylistIcon />
-              save
-            </button>
-          </div>
-        </div>
-        <div className="video_description">
-          <p>{description}</p>
-        </div>
+        )}
       </div>
       <Modal />
     </>
