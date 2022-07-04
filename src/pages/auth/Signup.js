@@ -45,7 +45,7 @@ export const Signup = () => {
       toastDispatch({
         type: ACTION_TYPE_ERROR,
         payload:
-          "Password length should be Alpha Numeric and have minimum 6 characters.",
+          "Password should be Alpha Numeric and have minimum 6 characters.",
       });
       setShowToast(true);
       setTimeout(() => {

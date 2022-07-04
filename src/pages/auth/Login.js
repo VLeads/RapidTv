@@ -39,70 +39,58 @@ export const Login = () => {
   };
 
   const handleLogin = async (email, password) => {
-    if (password.length < 6 || !testAlphaNumericString(password)) {
-      setShowToast(true);
-      toastDispatch({
-        type: ACTION_TYPE_ERROR,
-        payload:
-          "⚠ Password should be Alpha Numeric and have minimum 6 characters.",
-      });
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3500);
-    } else {
-      try {
-        const response = await postLoginDetailsApi(
-          JSON.stringify({
-            email: email,
-            password: password,
-          })
-        );
-        if (response.status === 200) {
-          setIsLoggedin(true);
-          toastDispatch({
-            type: ACTION_TYPE_SUCCESS,
-            payload: `✅ Loggedin successfully ${response.data.foundUser.firstName}. Enjoy the shows 🎉 `,
-          });
-          setShowToast(true);
-          setTimeout(() => {
-            navigate(-1);
-            setShowToast(false);
-          }, 1800);
-          localStorage.setItem("token", response.data.encodedToken);
+    try {
+      const response = await postLoginDetailsApi(
+        JSON.stringify({
+          email: email,
+          password: password,
+        })
+      );
+      if (response.status === 200) {
+        setIsLoggedin(true);
+        toastDispatch({
+          type: ACTION_TYPE_SUCCESS,
+          payload: `✅ Loggedin successfully ${response.data.foundUser.firstName}. Enjoy the shows 🎉 `,
+        });
+        setShowToast(true);
+        setTimeout(() => {
+          navigate(-1);
+          setShowToast(false);
+        }, 1800);
+        localStorage.setItem("token", response.data.encodedToken);
 
-          setGetToken(response.data.encodedToken);
-        }
-      } catch (error) {
-        const { status, statusText } = error?.response;
+        setGetToken(response.data.encodedToken);
+      }
+    } catch (error) {
+      const { status, statusText } = error?.response;
 
-        if (status === 401 && statusText === "Unauthorized") {
-          toastDispatch({
-            type: ACTION_TYPE_ERROR,
-            payload: "⚠ You have entered either incorrect Email or Password",
-          });
-          setShowToast(true);
-          setTimeout(() => {
-            setShowToast(false);
-          }, 2500);
-        } else if (status === 404 && statusText === "Not Found") {
-          toastDispatch({
-            type: ACTION_TYPE_ERROR,
-            payload: "⚠ Email is not registered",
-          });
-          setShowToast(true);
-          setTimeout(() => {
-            setShowToast(false);
-          }, 2500);
-        } else {
-          toastDispatch({
-            type: ACTION_TYPE_ERROR,
-            payload: "⚠ Something Wrong Happened",
-          });
-          setShowToast(true);
-          setTimeout(() => {
-            setShowToast(false);
-          }, 2500);
-        }
+      if (status === 401 && statusText === "Unauthorized") {
+        toastDispatch({
+          type: ACTION_TYPE_ERROR,
+          payload: "⚠ You have entered either incorrect Email or Password",
+        });
+        setShowToast(true);
+        setTimeout(() => {
+          setShowToast(false);
+        }, 2500);
+      } else if (status === 404 && statusText === "Not Found") {
+        toastDispatch({
+          type: ACTION_TYPE_ERROR,
+          payload: "⚠ Email is not registered",
+        });
+        setShowToast(true);
+        setTimeout(() => {
+          setShowToast(false);
+        }, 2500);
+      } else {
+        toastDispatch({
+          type: ACTION_TYPE_ERROR,
+          payload: "⚠ Something Wrong Happened",
+        });
+        setShowToast(true);
+        setTimeout(() => {
+          setShowToast(false);
+        }, 2500);
       }
     }
   };

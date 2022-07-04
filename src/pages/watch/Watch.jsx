@@ -168,7 +168,7 @@ function Watch() {
           </>
         ) : (
           <div className="not-available">
-            <p>This video is no loger available</p>
+            <p>This video is no longer available</p>
 
             <Link to="/">
               <button className="btn btn-info not-available-btn ">
