@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import {
+  CategoryProvider,
   HistoryProvider,
   LikeProvider,
   PlaylistProvider,
@@ -24,15 +25,17 @@ ReactDOM.render(
       <ToastProvider>
         <UserProvider>
           <VideoProvider>
-            <PlaylistProvider>
-              <HistoryProvider>
-                <WatchLaterProvider>
-                  <LikeProvider>
-                    <App />
-                  </LikeProvider>
-                </WatchLaterProvider>
-              </HistoryProvider>
-            </PlaylistProvider>
+            <CategoryProvider>
+              <PlaylistProvider>
+                <HistoryProvider>
+                  <WatchLaterProvider>
+                    <LikeProvider>
+                      <App />
+                    </LikeProvider>
+                  </WatchLaterProvider>
+                </HistoryProvider>
+              </PlaylistProvider>
+            </CategoryProvider>
           </VideoProvider>
         </UserProvider>
       </ToastProvider>

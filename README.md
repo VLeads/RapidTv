@@ -41,6 +41,10 @@ Give it a try today.
 
 ## 🚀 Its Features
 
+**Search for Video**
+
+- search for any video available, you wanna see
+
 **Like a Video**
 
 - like a Video

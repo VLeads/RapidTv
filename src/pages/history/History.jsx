@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./history.css";
 import { HorizontalVideoCard, Toast } from "components";
-import { useHistory, useUser } from "context";
+import { useCategory, useHistory, useUser } from "context";
 import { Link } from "react-router-dom";
 import { useApi } from "custom-hooks";
 
@@ -9,6 +9,13 @@ function History() {
   const { history, historyLoading, deleteAllHistory } = useHistory();
 
   const { getToken: authToken } = useUser();
+
+  const { setSearchTerm } = useCategory();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setSearchTerm("");
+  }, []);
 
   return (
     <div className="history_videos_container">

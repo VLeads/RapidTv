@@ -1,14 +1,19 @@
 import { HorizontalVideoCard, Modal } from "components";
-import { useUser, useWatchLater } from "context";
-import React from "react";
+import { useCategory, useUser, useWatchLater } from "context";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../liked/liked.css";
 
 function WatchLater() {
   const { watchLater } = useWatchLater();
   const { data, error, isLoading } = watchLater;
-
   const { getToken: authToken } = useUser();
+  const { setSearchTerm } = useCategory();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setSearchTerm("");
+  }, []);
 
   return (
     <div className="liked_videos_container">
