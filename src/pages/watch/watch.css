@@ -76,3 +76,19 @@
 .active-btn {
     color: var(--primary-color);
 }
+
+.not-available {
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    margin-top: 5rem;
+}
+
+.not-available>p {
+    font-size: 3.5rem;
+    margin-bottom: 5rem;
+}
+
+.not-available-btn:hover {
+    color: black
+}

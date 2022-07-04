@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../history/history.css";
 import { HorizontalVideoCard, Modal, Toast } from "components";
-import { usePlaylist, useToast, useUser } from "context";
+import { useCategory, usePlaylist, useToast, useUser } from "context";
 import { Link, NavLink, useParams, useNavigate } from "react-router-dom";
 import { useApi } from "custom-hooks";
 import "./playlist.css";
@@ -9,6 +9,7 @@ import "./playlist.css";
 function Playlist() {
   const { playlistId } = useParams();
   const navigate = useNavigate();
+  const { setSearchTerm } = useCategory();
 
   const { getToken: authToken } = useUser();
   const { isModalOpen, setIsModalOpen, setNotShowPlaylistNames } = useToast();
@@ -16,6 +17,11 @@ function Playlist() {
 
   const { playlist, deleteDataUsingApi } = usePlaylist();
   const { data: playlistData } = playlist;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setSearchTerm("");
+  }, []);
 
   const currentPlaylist = playlistData.find((item) => item._id === playlistId);
 

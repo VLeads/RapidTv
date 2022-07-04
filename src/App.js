@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Mockman from "mockman-js";
 import {
   Discover,
   Error404,
@@ -12,29 +16,23 @@ import {
   Liked,
 } from "pages";
 
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import { Header } from "./components";
 import logo from "./logo.png";
-import Mockman from "mockman-js";
 import { CategoryProvider } from "context";
 import { RequiresAuth } from "components/auth-route/RequiresAuth";
 import { RestrictAuth } from "components/auth-route/RestrictAuth";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />}>
-          <Route
-            index
-            element={
-              <CategoryProvider>
-                <Discover />{" "}
-              </CategoryProvider>
-            }
-          />
+          <Route index element={<Discover />} />
           <Route path="/trending" element={<Trending />}></Route>
           <Route path="/history" element={<History />}></Route>
           <Route path="/watch/:videoId" element={<Watch />}></Route>

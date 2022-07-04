@@ -95,7 +95,7 @@ export const useAsync = (api, fetchData, token) => {
             ? "Added to liked 🎉"
             : fetchData === "watchlater"
             ? "Added to watch later 🎉"
-            : "Playlist created 🎉",
+            : `Playlist created with name "${data?.playlist?.title}" 🎉`,
       });
       setTimeout(() => {
         setShowToast(false);

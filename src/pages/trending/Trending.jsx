@@ -7,6 +7,13 @@ import { Modal, VideoCard } from "components";
 export const Trending = () => {
   const { videos } = useVideo();
 
+  const { setSearchTerm } = useCategory();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setSearchTerm("");
+  }, []);
+
   return (
     <div>
       <div className="page_heading">Trending Videos</div>

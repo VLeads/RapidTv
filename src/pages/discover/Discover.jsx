@@ -7,8 +7,13 @@ import { Modal, VideoCard } from "components";
 export const Discover = () => {
   const [selectedTab, setSelectedTab] = useState("all");
   const { videos } = useVideo();
-  const { categories, categoryHandler, categoryVideos, setCategoryVideos } =
-    useCategory();
+  const {
+    categories,
+    categoryHandler,
+    categoryVideos,
+    setCategoryVideos,
+    setSearchTerm,
+  } = useCategory();
 
   const {
     isLoading: categoryLoading,
@@ -41,6 +46,7 @@ export const Discover = () => {
           onClick={(e) => {
             allCategoriesHandler();
             activeBtnHandler(e);
+            setSearchTerm("");
           }}
         >
           All
@@ -48,13 +54,13 @@ export const Discover = () => {
         {allCategory.map((item) => (
           <button
             name={item.categoryName}
-            // className="btn btn-secondary btn-secondary-outline btn-chip"
             className={`btn btn-secondary btn-secondary-outline btn-chip ${
               selectedTab === item.categoryName ? "active-btn-chip" : ""
             }`}
             onClick={(e) => {
               categoryHandler(item);
               activeBtnHandler(e);
+              setSearchTerm("");
             }}
             key={item._id}
           >
@@ -64,11 +70,20 @@ export const Discover = () => {
       </div>
 
       <div className="all_videos_container">
-        {categoryVideos.map((details) => (
-          <li key={details._id}>
-            <VideoCard details={details} />
-          </li>
-        ))}
+        {categoryVideos?.length ? (
+          categoryVideos?.map((details) => (
+            <li key={details._id}>
+              <VideoCard details={details} />
+            </li>
+          ))
+        ) : (
+          <div className="no-search">
+            <div>No video found</div>
+            <div className="no-search-text">
+              Try searching for something else...
+            </div>
+          </div>
+        )}
       </div>
       <Modal />
     </div>
