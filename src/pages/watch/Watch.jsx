@@ -100,7 +100,7 @@ function Watch() {
       navigate("/login");
     }
   };
-  console.log("test132", singleVideo);
+
   return (
     <>
       <div className="video_page_container">

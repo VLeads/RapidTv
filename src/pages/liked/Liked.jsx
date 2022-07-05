@@ -1,4 +1,4 @@
-import { HorizontalVideoCard } from "components";
+import { HorizontalVideoCard, Modal } from "components";
 import { useCategory, useLike, useUser } from "context";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -50,6 +50,7 @@ function Liked() {
           &nbsp; to view liked videos
         </div>
       )}
+      <Modal />
     </div>
   );
 }

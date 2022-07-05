@@ -91,8 +91,6 @@ function HorizontalVideoCard({ details, extra, type }) {
     }
   };
 
-  console.log("est", type);
-
   const cardType =
     type === "fromhistory"
       ? styles.horizontalVideoMenuCard

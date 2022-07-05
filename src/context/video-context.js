@@ -15,8 +15,6 @@ const VideoProvider = ({ children }) => {
     fetchData
   );
 
-  console.log("state", videos);
-
   const getSingleVideo = async (id, setSingleVideo) => {
     try {
       const response = await getVideoApi(id);

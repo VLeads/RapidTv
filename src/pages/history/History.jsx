@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./history.css";
-import { HorizontalVideoCard, Toast } from "components";
+import { HorizontalVideoCard, Modal, Toast } from "components";
 import { useCategory, useHistory, useUser } from "context";
 import { Link } from "react-router-dom";
 import { useApi } from "custom-hooks";
@@ -62,6 +62,7 @@ function History() {
         </div>
       )}
       <Toast />
+      <Modal />
     </div>
   );
 }
