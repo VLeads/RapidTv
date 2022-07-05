@@ -166,9 +166,6 @@ export const Login = () => {
               <input type="checkbox" name="accept" id="accept" />
               Remember me
             </label>
-            <a className="forgot-pass" href="">
-              Forgot your Password?
-            </a>
           </div>
 
           <button className="btn btn-primary" type="submit">
