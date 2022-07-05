@@ -83,6 +83,7 @@ export function Modal() {
                           )
                         : addToPlaylistHandler(videoData, item._id, item.title);
                     }}
+                    style={{ marginRight: "1rem" }}
                   />{" "}
                   {item.title}
                 </label>
