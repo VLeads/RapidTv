@@ -2,7 +2,7 @@
     position: fixed;
     width: 22rem;
     height: 100vh;
-    left: 0;
+    left: inherit;
     overflow: hidden;
     padding: 0 2rem 1rem 3rem;
 }
@@ -59,7 +59,7 @@
     color: var(--COLOR-WHITE);
 }
 
-li{
+li {
     list-style: none;
 }
 
@@ -81,6 +81,6 @@ li{
     font-size: 2.2rem;
 }
 
-.personal_links li:hover{
+.personal_links li:hover {
     color: var(--COLOR-WHITE);
 }

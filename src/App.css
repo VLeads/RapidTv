@@ -1,4 +1,4 @@
-:root{
+:root {
     --COLOR-BACKGROUND: #1f2127;
     --COLOR-LIGHT-BACKGROUND: #363341;
     --COLOR-WHITE: #e7e4e4;
@@ -8,7 +8,12 @@
     --COLOR-GREY-TEXT: #e2c9ff;
 }
 
-body{
+body {
     background-color: var(--COLOR-BACKGROUND);
     font-size: 1.5rem
+}
+
+.App {
+    max-width: 162rem;
+    margin: auto
 }

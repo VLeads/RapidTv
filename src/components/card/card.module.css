@@ -203,5 +203,10 @@
 }
 
 .videoMenuCardItem {
-    padding: 1rem
+    padding: 1rem;
+    text-align: left;
+}
+
+.videoMenuCardItem:hover {
+    background-color: var(--COLOR-LIGHT-BACKGROUND);
 }
